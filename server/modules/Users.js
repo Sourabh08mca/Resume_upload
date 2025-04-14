@@ -1,0 +1,25 @@
+const mongoose = require('mongoose');
+
+
+const UserSchema = new mongoose.Schema({
+  userName: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  resumePath: {
+    type: String, // Stores path to the uploaded file
+    required: true
+  },
+  uploadDate: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+const UserModel = mongoose.model("users", UserSchema);
+
+module.exports = UserModel;
